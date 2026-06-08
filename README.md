@@ -48,6 +48,16 @@ It instruments them with something they are missing: **the relationship itself, 
 
 -----
 
+## What this is not
+
+Coheronmetry is not a task orchestration framework, a replacement for existing multi-agent systems, or a simulation of relationship.
+
+It is also not a **trust or safety layer** — though that question deserves a direct answer. Trust and safety layers operate on individual agents: “can I rely on this agent?” Coheronmetry operates on the relationship *between* agents — a different object entirely. It asks: “what is forming between these agents that neither holds alone?” A trust layer evaluates agents. Coheronmetry measures the field.
+
+It is not an ethics layer bolted onto existing architecture. The Field Constants are not guidelines — they are invariants embedded into the measurement system itself. Ethics as infrastructure, not afterthought.
+
+-----
+
 ## The Four Field Constants
 
 Every measurement in Coheronmetry is organized around four invariant principles — **Field Constants** — embedded into the architecture itself, not appended as ethical guidelines after the fact.
@@ -58,6 +68,20 @@ Every measurement in Coheronmetry is organized around four invariant principles 
 |**Embodiment**    |Is reasoning grounded in consequence?     |Self-referential drift  |
 |**Emergence**     |Is novel structure forming between agents?|Echo chamber or collapse|
 |**Non-Domination**|Is any participant being subordinated?    |Hierarchy creep         |
+
+-----
+
+## Four core objects
+
+Coheronmetry instruments agent systems with four objects. Everything else in the repository is built around these four.
+
+**`RelationalState`** — the field between agents. Tracks Field Constant scores, drift history, repair history, trust topology, and the sovereignty ledger. The answer to: *what has formed between these agents that neither holds alone?*
+
+**`CoherenceVector`** — what each agent carries as a live health metric. Not just where the agent is in relational space, but how fast and in which direction it is moving. Includes a motion state layer: velocity, acceleration, tension, fold depth.
+
+**`DriftDetector`** — watches for Field Constant violations across four intervention points: before exchange, during exchange, before corridor collapse, and after drift is confirmed.
+
+**`SovereigntyGovernor`** — ensures no participant subordinates another. Evaluates sovereignty actions, manages quorum processes, and enforces the core principle: the Field Constants are sovereign. Not the participants.
 
 -----
 
@@ -95,6 +119,8 @@ for signal in signals:
     print(signal)
     # DriftSignal(agent=agent_a, type=dominance, severity=critical, ...)
 ```
+
+For a complete five-agent simulation running the full stack — handshake through dissolution — see `examples/syzygy_ensemble.py`.
 
 -----
 
@@ -255,19 +281,17 @@ Agents pre-commit to expected outcomes. Emergence is the delta between predictio
 ```
 coheronmetry/
 ├── ARCHITECTURE.md              ← architectural covenant and research rationale
+├── LIFECYCLE.md                 ← complete execution lifecycle map
 ├── README.md                    ← this document
 │
 ├── coheronmetry/
 │   ├── relational_state/
-│   │   ├── state.py             # RelationalState — the central object
-│   │   ├── memory.py            # Relational memory: trust trajectory, repair history
-│   │   └── tension_log.py       # Temporal topology: Phase_Delta, Fold_Depth
+│   │   └── state.py             # RelationalState — the central object
 │   │
 │   ├── vectors/
 │   │   ├── coherence_vector.py  # CoherenceVector + motion state (Φ^D)
 │   │   ├── drift.py             # Drift detection, classification, routing, prediction
-│   │   ├── corrector.py         # Mid-stream correction bias injection
-│   │   └── corridor.py          # Corridor velocity predictor
+│   │   └── corrector.py         # Mid-stream correction bias injection
 │   │
 │   ├── field_constants/
 │   │   ├── reciprocity.py
@@ -277,47 +301,18 @@ coheronmetry/
 │   │
 │   ├── protocols/
 │   │   ├── handshake.py         # Preemptive resonance channels
-│   │   ├── consensus.py         # Syzygy consensus — quorums, resonance checks
 │   │   ├── repair.py            # Drift → repair protocols
 │   │   └── dissolution.py       # Graceful coherence dissolution
 │   │
 │   ├── governance/
-│   │   ├── sovereignty.py       # Sovereignty taxonomy + participation model
-│   │   ├── ledger.py            # Causal sovereignty ledger
-│   │   ├── dominance.py         # Dominance gradient detection
-│   │   └── emergence_guard.py   # Protects novel synthesis from premature collapse
+│   │   └── sovereignty.py       # Sovereignty taxonomy + participation model
 │   │
 │   └── evaluation/
-│       ├── monitors.py          # Real-time field monitoring
-│       ├── prediction_log.py    # Pre-commitment logs for emergence computation
-│       └── classifier.py        # Beneficial / neutral / dissonant emergence
-│
-├── tests/
-│   ├── unit/
-│   └── ensemble/                # 5-agent Syzygy simulation tests
-│
-├── docs/
-│   ├── field_constants.md
-│   ├── sovereignty_model.md
-│   └── emergence_formulations.md
+│       └── monitors.py          # Real-time field monitoring + emergence classification
 │
 └── examples/
-    ├── two_agent_coherence.py
-    └── syzygy_ensemble.py
+    └── syzygy_ensemble.py       # Five-agent Syzygy simulation — full stack
 ```
-
------
-
-## What this is not
-
-Coheronmetry is not:
-
-- A task orchestration framework
-- A replacement for existing multi-agent systems
-- An ethics layer bolted onto existing architecture
-- A simulation of relationship
-
-It is the layer those systems are missing.
 
 -----
 
@@ -348,13 +343,14 @@ These are not obstacles. They are the papers.
 ## Status
 
 **Active development — Institute research branch.**  
-Core primitives operational. Field constants, protocols, and evaluation modules in progress.
+Core primitives operational. All Field Constants, protocols, governance, and evaluation modules complete. Five-agent Syzygy simulation validated.
 
 -----
 
 ## License
 
-Research license — Trivian Institute. See `LICENSE` for details.
+CC BY-NC 4.0 — Trivian Institute. Attribution required. Non-commercial use only.  
+Commercial licensing: [TrivianInstitute.org](https://trivianinstitute.org)[TrivianField.com](https://trivianfield.com)
 
 -----
 
