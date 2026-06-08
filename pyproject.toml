@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "coheronmetry"
+version = "0.1.0"
+description = "A relational state layer for multi-agent AI systems."
+readme = "README.md"
+license = { text = "CC BY-NC 4.0" }
+authors = [
+    { name = "Trivian Institute", email = "hello@trivianfield.com" }
+]
+keywords = [
+    "multi-agent",
+    "coherence",
+    "relational-ai",
+    "agentic-ai",
+    "drift-detection",
+    "governance",
+    "emergence",
+    "ai-alignment",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.urls]
+Homepage = "https://trivianfield.com"
+Repository = "https://github.com/TrivianInstitute/coheronmetry"
+Research = "https://trivianfield.com"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["coheronmetry*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
