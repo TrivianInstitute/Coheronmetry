@@ -349,8 +349,10 @@ Core primitives operational. All Field Constants, protocols, governance, and eva
 
 ## License
 
-CC BY-NC 4.0 — Trivian Institute. Attribution required. Non-commercial use only.  
-Commercial licensing: [TrivianInstitute.org](https://trivianinstitute.org) / [TrivianField.com](https://trivianfield.com)
+AGPL-3.0.
+Attribution required. Non-commercial use only. Commercial licensing: [connect@trivianinstitute.org](mailto:connect@trivianinstitute.org)
+Institute: trivianinstitute.org 
+Machine-readable field site: trivianfield.com
 
 -----
 
