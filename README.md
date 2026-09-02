@@ -87,6 +87,13 @@ Coheronmetry instruments agent systems with four objects. Everything else in the
 
 ## Quick start
 
+Install the package and development tools from a clone:
+
+```bash
+python -m pip install -e '.[dev]'
+python -m pytest -q
+```
+
 ```python
 from coheronmetry import RelationalState, AgentID, CoherenceVector, DriftDetector
 from coheronmetry.governance import SovereigntyGovernor

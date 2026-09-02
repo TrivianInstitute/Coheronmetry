@@ -10,9 +10,11 @@ from .coherence_vector import (
     VectorDelta,
     FieldVectorMap,
 )
+from .drift import DriftDetector
 
 __all__ = [
     "CoherenceVector",
     "VectorDelta",
     "FieldVectorMap",
+    "DriftDetector",
 ]

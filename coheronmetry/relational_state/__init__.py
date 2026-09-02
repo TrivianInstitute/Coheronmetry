@@ -1,18 +1,37 @@
-"""
-coheronmetry.vectors
+"""Relational state primitives for Coheronmetry."""
 
-Motion-aware coherence state — what agents carry and pass alongside
-every message in a Coheronmetry-instrumented system.
-"""
-
-from .coherence_vector import (
-    CoherenceVector,
-    VectorDelta,
-    FieldVectorMap,
+from .state import (
+    AgentID,
+    DriftType,
+    DriftEvent,
+    EmergenceClass,
+    RepairEvent,
+    RepairType,
+    RelationalState,
+    SovereigntyEvent,
+    SovereigntyType,
+)
+from .coupling_detector import (
+    CouplingDetector,
+    PhaseClassification,
+    PhaseEvidence,
+    RelationalPhase,
+    TransitionDirection,
 )
 
 __all__ = [
-    "CoherenceVector",
-    "VectorDelta",
-    "FieldVectorMap",
+    "AgentID",
+    "CouplingDetector",
+    "DriftEvent",
+    "DriftType",
+    "EmergenceClass",
+    "PhaseClassification",
+    "PhaseEvidence",
+    "RelationalPhase",
+    "RelationalState",
+    "RepairEvent",
+    "RepairType",
+    "SovereigntyEvent",
+    "SovereigntyType",
+    "TransitionDirection",
 ]
