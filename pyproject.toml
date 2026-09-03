@@ -7,7 +7,7 @@ name = "coheronmetry"
 version = "0.1.0"
 description = "A relational state layer for multi-agent AI systems."
 readme = "README.md"
-license = { text = "CC BY-NC 4.0" }
+license = {text = "AGPL-3.0-only with Commons Clause License Condition v1.0"}
 authors = [
     { name = "Trivian Institute", email = "hello@trivianfield.com" }
 ]
