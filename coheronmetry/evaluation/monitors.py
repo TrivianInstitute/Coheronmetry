@@ -170,15 +170,12 @@ class FieldMonitor:
         mean_vel = sum(v.velocity for v in vectors) / n
         mean_ten = sum(v.tension  for v in vectors) / n
 
-        composite = (
-            mean_r  * 0.25 +
-            mean_b  * 0.25 +
-            max(0.0, mean_e) * 0.20 +
-            mean_nd * 0.30
-        )
+        # Rosetta 2.0: constitutive dependencies are multiplicative and
+        # emergence is downstream, not a compensatory term in the aggregate.
+        composite = mean_r * mean_b * mean_nd
 
         emergence_phase = EmergencePhase.from_score(mean_e)
-        emergence_class = self._classify_emergence(mean_e, mean_nd)
+        emergence_class = self._classify_emergence(mean_e, mean_r, mean_b, mean_nd)
 
         snapshot = CoherenceSnapshot(
             timestamp            = now,
@@ -261,13 +258,17 @@ class FieldMonitor:
         }
 
     def _classify_emergence(
-        self, emergence_score: float, non_domination_score: float
+        self,
+        emergence_score: float,
+        reciprocity_score: float,
+        embodiment_score: float,
+        non_domination_score: float,
     ) -> EmergenceClass:
         if emergence_score < 0.0:
             return EmergenceClass.CHAOS
         if emergence_score < 0.1:
             return EmergenceClass.STAGNATION
-        if non_domination_score < 0.4:
+        if min(reciprocity_score, embodiment_score, non_domination_score) < 0.4:
             return EmergenceClass.DISSONANT
         if emergence_score >= 0.7:
             return EmergenceClass.BENEFICIAL
