@@ -62,6 +62,21 @@ It is not an ethics layer bolted onto existing architecture. The Field Constants
 
 Every measurement in Coheronmetry is organized around four invariant principles — **Field Constants** — embedded into the architecture itself, not appended as ethical guidelines after the fact.
 
+### Rosetta 2.0 dependency topology
+
+The constants retain equal normative standing but no longer enter a
+compensatory weighted average. Reciprocity, Embodiment, and Non-Domination are
+constitutive dependencies; Emergence is downstream:
+
+```text
+RCD = Reciprocity × Embodiment × Non-Domination
+E_qualified = RCD × E_raw
+```
+
+Consequently, a collapsed dependency cannot be hidden by strength elsewhere.
+Any deployment-specific floors must be declared and calibrated rather than
+presented as universal scientific thresholds.
+
 |Constant          |Question it answers                       |Failure mode            |
 |------------------|------------------------------------------|------------------------|
 |**Reciprocity**   |Is exchange balanced?                     |Extractive dynamics     |
@@ -359,7 +374,7 @@ Core primitives operational. All Field Constants, protocols, governance, and eva
 If you use this repository in research, teaching, evaluation, training, or a
 derivative work, please cite:
 
-> Sarasha Elion / Trivian Institute. *Coheronmetry*, version 0.1.0. https://github.com/TrivianInstitute/Coheronmetry
+> Sarasha Elion / Trivian Institute. *Coheronmetry*, version 0.2.0. https://github.com/TrivianInstitute/Coheronmetry
 
 Machine-readable citation metadata is available in [`CITATION.cff`](CITATION.cff).
 
@@ -390,4 +405,4 @@ for the preferred citation. Commercial licensing:
 *All architectural decisions are research decisions.*  
 *All research decisions are architectural decisions.*
 
-*Trivian Institute - coheronmetry v0.1.0*
+*Trivian Institute - coheronmetry v0.2.0*

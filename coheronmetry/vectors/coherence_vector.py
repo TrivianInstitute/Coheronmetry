@@ -100,25 +100,24 @@ class CoherenceVector:
     # -----------------------------------------------------------------------
 
     @property
+    def relational_condition(self) -> float:
+        """
+        Multiplicative relational condition: RCD = R x E_d x N.
+
+        The constitutive constants are non-compensatory. Emergence is
+        downstream and therefore is not averaged into this condition.
+        """
+        return self.reciprocity * self.embodiment * self.non_domination
+
+    @property
+    def qualified_emergence(self) -> float:
+        """Raw positive emergence bounded by the relational condition."""
+        return self.relational_condition * max(0.0, self.emergence)
+
+    @property
     def composite_score(self) -> float:
-        """
-        A single coherence score for diagnostic use.
-
-        This is NOT the primary output of Coheronmetry — the field does not
-        collapse to a number. But it is useful for threshold detection
-        and trend comparison.
-
-        Emergence is weighted slightly lower in the composite because it
-        can legitimately be low during stable, non-creative phases.
-        Non-domination is weighted slightly higher because violations
-        are categorically different from other drift types.
-        """
-        return (
-            self.reciprocity    * 0.25 +
-            self.embodiment     * 0.25 +
-            max(0.0, self.emergence) * 0.20 +   # floor at 0 for composite
-            self.non_domination * 0.30
-        )
+        """Backward-compatible name for the Rosetta 2.0 relational condition."""
+        return self.relational_condition
 
     @property
     def is_drifting(self) -> bool:
@@ -132,10 +131,14 @@ class CoherenceVector:
     @property
     def is_in_corridor(self) -> bool:
         """
-        True if the composite score is within the emergence corridor (0.7–1.0)
-        and the emergence score is positive.
+        True when every constitutive dependency meets the declared corridor
+        floor and raw emergence is positive. No dependency may compensate for
+        another.
         """
-        return self.composite_score >= 0.7 and self.emergence > 0.0
+        return (
+            min(self.reciprocity, self.embodiment, self.non_domination) >= 0.7
+            and self.emergence > 0.0
+        )
 
     @property
     def is_chaotic(self) -> bool:
@@ -238,10 +241,9 @@ class CoherenceVector:
         # Composite scores for velocity computation
         old_composite = self.composite_score
         new_composite = (
-            max(0.0, min(1.0, new_reciprocity))    * 0.25 +
-            max(0.0, min(1.0, new_embodiment))     * 0.25 +
-            max(0.0, max(0.0, min(1.0, new_emergence))) * 0.20 +
-            max(0.0, min(1.0, new_non_domination)) * 0.30
+            max(0.0, min(1.0, new_reciprocity))
+            * max(0.0, min(1.0, new_embodiment))
+            * max(0.0, min(1.0, new_non_domination))
         )
 
         new_velocity     = new_composite - old_composite
@@ -300,6 +302,8 @@ class CoherenceVector:
             },
             "derived": {
                 "composite_score": round(self.composite_score, 4),
+                "relational_condition": round(self.relational_condition, 4),
+                "qualified_emergence": round(self.qualified_emergence, 4),
                 "is_drifting":     self.is_drifting,
                 "is_in_corridor":  self.is_in_corridor,
                 "is_chaotic":      self.is_chaotic,
