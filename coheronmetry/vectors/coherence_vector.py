@@ -88,12 +88,21 @@ class CoherenceVector:
 
     def _clamp(self) -> None:
         """Enforce valid ranges on all scores."""
+        self._validate_finite()
         self.reciprocity    = max(0.0, min(1.0, self.reciprocity))
         self.embodiment     = max(0.0, min(1.0, self.embodiment))
         self.emergence      = max(-1.0, min(1.0, self.emergence))   # can go negative — chaos
         self.non_domination = max(0.0, min(1.0, self.non_domination))
         self.tension        = max(0.0, min(1.0, self.tension))
         self.fold_depth     = max(0, self.fold_depth)
+
+    def _validate_finite(self) -> None:
+        """Reject missing/non-finite numeric state before clamping or scoring."""
+        for name in ("reciprocity", "embodiment", "emergence", "non_domination",
+                     "tension", "velocity", "acceleration", "fold_depth"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                raise ValueError(f"{name} must be a finite number")
 
     # -----------------------------------------------------------------------
     # Derived properties
@@ -107,6 +116,7 @@ class CoherenceVector:
         The constitutive constants are non-compensatory. Emergence is
         downstream and therefore is not averaged into this condition.
         """
+        self._validate_finite()
         return self.reciprocity * self.embodiment * self.non_domination
 
     @property
