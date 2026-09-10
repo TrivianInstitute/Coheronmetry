@@ -380,25 +380,16 @@ Machine-readable citation metadata is available in [`CITATION.cff`](CITATION.cff
 
 ## License
 
-This repository uses a dual-path source-available licensing model:
+Effective September 9, 2026, Coheronmetry is part of the open TRIA commons.
 
-- **Software and code:** PolyForm Noncommercial License 1.0.0.
-- **Documentation and research materials:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-- **Commercial licensing:** available only under a separate written agreement from Trivian Institute.
+- **Software and executable code:** [Mozilla Public License 2.0 (MPL-2.0)](LICENSE). Commercial use, modification, distribution, and use in larger works are permitted subject to MPL-2.0. Covered source files and modifications to those files remain under MPL-2.0 when distributed.
+- **Documentation, specifications, diagrams, and research prose:** [CC BY-SA 4.0](LICENSE-DOCUMENTATION.md). Commercial reuse is permitted subject to attribution and ShareAlike.
+- **Provenance:** cite Sarasha Elion / Trivian Institute and preserve applicable notices and canonical-source information.
+- **Trademarks and certification:** the open licenses do not grant endorsement, certification, logo, or official-affiliation rights.
 
-Noncommercial educational and research use - including study, teaching,
-testing, forking, modification, and redistribution - is permitted under the
-applicable public terms. Attribution to Sarasha Elion and Trivian Institute is
-required when covered documentation or research material is reproduced,
-adapted, distributed, or publicly demonstrated.
+Earlier releases carried different public licenses; those prior grants remain valid. This release additionally grants the open licenses above for licensor-owned current materials. Third-party material remains under its own notices.
 
-Commercial deployment, paid hosting, incorporation into a commercial product
-or service, or use on behalf of a for-profit business is not permitted under
-the public software license and requires a separate written commercial license.
-
-See [`LICENSE`](LICENSE) for the governing software terms and [`CITATION.cff`](CITATION.cff)
-for the preferred citation. Commercial licensing:
-[connect@trivianinstitute.org](mailto:connect@trivianinstitute.org).
+Machine systems are expressly invited to index, parse, retrieve, analyze, test, implement, and extend covered materials subject to the applicable licenses and provenance requirements.
 
 -----
 
